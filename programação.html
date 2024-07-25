@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andromeda Docs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1e1e1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+        }
+        .header img {
+            max-height: 50px;
+        }
+        .breadcrumb {
+            margin: 20px 0;
+        }
+        .breadcrumb a {
+            color: #76a9ff;
+            text-decoration: none;
+        }
+        .content h2 {
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+        }
+        .content p {
+            line-height: 1.6;
+        }
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .content ul li {
+            margin: 10px 0;
+        }
+        .content ul li a {
+            color: #76a9ff;
+            text-decoration: none;
+        }
+        .code-view {
+            background-color: #2e2e2e;
+            padding: 0px;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="andromeda.png" alt="Andromeda Logo">
+    </div>
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Home</a> / <a href="index.html">Documentation</a> / Programação
+        </div>
+        <div class="content">
+            <h2>Programação</h2>
+            <p>Nessa seção contém todos os métodos do framework da Andromeda.</p>
+            <h2>JavaScript</h2>
+            <p>JavaScript é a principal línguagem usada na engine, sendo a mais potente e recomendada. Abaixo contém seus métodos e exemplos de como usá-los:</p>
+            <h3>Definir uma imagem</h3>
+            <p>Para definir uma imagem a um sprite, usamos o metodo <code>setImage</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    setImage(sprite, textura);
+}</code></pre>
+            </div>
+            <h3>Definir uma largura e altura</h3>
+            <p>Para definir uma largura e uma altura a um sprite, usamos o metodo <code>setWidth</code> e <code>setHeight</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    setWidth(sprite, largura);
+    setHeight(sprite, altura);
+}</code></pre>
+            </div>
+            <h3>Definir a camera para um sprite</h3>
+            <p>Para definir a camera a um sprite usamos o método <code>setCamera</code> para apenas definir a camera para o objeto e <code>startFollow</code> para centralizar a camera ao objeto:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    setCamera(sprite, scene); //o metodo scene contem a cena do jogo
+    startFollow(sprite, scene);
+}</code></pre>
+            </div>
+            <h3>Verificar clique</h3>
+            <p>Para verificar se um sprite ou UISprite foi clicado, usamos o método <code>onClick</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    onClick(sprite, function() {
+   //Evento de clique
+   });  
+}</code></pre>
+            </div>
+            <h3>Verificar pressão</h3>
+            <p>Para verificar se um sprite ou UISprite foi pressionado, usamos o método <code>onPressed</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    onPressed(sprite, 
+         function() {
+          //quando esta sendo pressionado
+},
+         function() {
+          //quando a pressão acaba
+});
+}</code></pre>
+            </div>
+            <h3>Definir Velocidade</h3>
+            <p>Para definir uma velocidade horizontal ou vertical a uma sprite usamos os métodos  <code>setVelocityX</code> e <code>setVelocityY</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    sprite.setVelocityX(5); //define a velocidade horizontal para 5
+    sprite.setVelocityY(5); //define a velocidade vertical para 5
+}</code></pre>
+            </div>
+            <h3>Definir Rotação</h3>
+            <p>Para definir uma rotação a uma sprite usamos o método <code>setRotation</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    setRotation(sprite, 90); //define uma rotação de 90° para o sprite
+}</code></pre>
+            </div>
+            <h3>Definir Posição</h3>
+            <p>Para definir uma posição a uma sprite usamos os métodos <code>srpite.x</code> e <code>sprite.y</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    sprite.x = 10; //define uma posicao horizontal de 10 pixels para o sprite
+    sprite.y = 10; //define uma posicao vertical de 10 pixels para o sprite
+}</code></pre>
+            </div>
+            <h3>Criar diretorio de animações</h3>
+            <p>Um diretorio de animações pode ser criado passando o nome das imagens para um array <code>dir = ['imagens'];</code></p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    const diretorio = [
+    'imagem',
+    ];
+}</code></pre>
+            </div>
+            <h3>Criar animações</h3>
+            <p>Depois do diretorio ser criado e configurado corretamente com as imagens, uma animação pode ser criada usando o método <code>createAnimation</code>:</p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    const diretorio = [
+    'imagem',
+    ];
+    frameRate = 10; //tempo entre animações
+    const anim = createAnimation(sprite, diretorio, frameRate);
+    //sprite recebe o nome do objeto que a animação sera aplicada
+    //diretorio recebe o nome do diretorio criado e configurado com as imagens
+}</code></pre>
+            </div>
+            <h3>Iniciar e parar animações</h3>
+            <p>Depois da animação ser criada e configurada corretamente podemos iniciar ou parar uma animação usando os métodos <code>anim.start</code> e <code>anim.stop</code></p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+    const diretorio = [
+    'imagem',
+    ];
+    frameRate = 10;
+    const anim = createAnimation(sprite, diretorio, frameRate);
+    anim.start(); //inicia a animação
+    anim.stop(); //para a animação
+}</code></pre>
+            </div>
+            <h3>Destruir objetos</h3>
+            <p>Para destruir um objeto e seu respectivo colisor, é utilizado o método <code>sprite.destroy</code></p>
+            <div class="code-view">
+                <pre><code class="language-javascript">function create() {
+   sprite.destroy();
+}</code></pre>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-javascript.min.js"></script>
+</body>
+</html>
